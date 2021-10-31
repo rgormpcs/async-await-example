@@ -8,13 +8,13 @@ import { RickMortyService } from 'src/app/service/rick-morty.service';
   styleUrls: ['./character.component.css']
 })
 export class CharacterComponent implements OnInit {
-  nameCharacter:string ="rick"
-  stringify:string=""
-
-  counter=new Map()
+  nameCharacter: string = "rick"
+  stringify: string = ""
+  count: number = 0;
+  counter = new Map()
   //characters:Character[]=[]
-  characters:Array<Character>=new Array()
-  characters2:Array<Character>=new Array()
+  characters: Array<Character> = new Array()
+  characters2: Array<Character> = new Array()
   character: Character = {
     "id": 0,
     "name": "string",
@@ -25,39 +25,48 @@ export class CharacterComponent implements OnInit {
   constructor(private rickMortyService: RickMortyService) { }
 
   ngOnInit(): void {
-   //this.getCharacter();
-   //this.getCharacters();
+    //this.getCharacter();
+    //this.getCharacters();
   }
 
- async getCharacters(){
-  await  this.rickMortyService.getCharacters(this.nameCharacter).subscribe(data=>{
-        data.filter(character=>{
-          this.characters.push(new Character(character.id, character.name, character.species, character.gender, character.image))
-        })
-  console.log( this.characters)    
-    
-  })
-  
+  async getCharacters() {
+    await this.rickMortyService.getCharacters(this.nameCharacter).subscribe(data => {
+      data.filter(character => {
+        this.characters.push(new Character(character.id, character.name, character.species, character.gender, character.image))
+      })
+      
+      
+      this.characters.filter(character => {
+        //this.counter.set(character.species, this.count)
+        if (this.counter.get(character.species) == undefined) {
+          this.counter.set(character.species, 1)
+        }else{
+          this.counter.set(character.species, this.counter.get(character.species) + 1)
+        }
+        console.log(this.counter)
+      })
 
-  
- }
- 
-
-
- getCharacter(){
-  let promiseRickMorty=new Promise((resolve, reject)=>{
-    this.rickMortyService.getCharacter().subscribe(data=>{
-      this.character=data;
-      resolve("ok")
+      
+      for (var [key, value] of this.counter) {
+        console.log(key + " = " + value);
+      }
     })
-  })
-  promiseRickMorty.then(resolve=>{
-    if(resolve==="ok"){
-      console.log(this.character)
-    }
-  })
- }
+  }
 
+  /*  getCharacter(){
+    let promiseRickMorty=new Promise((resolve, reject)=>{
+      this.rickMortyService.getCharacter().subscribe(data=>{
+        this.character=data;
+        resolve("ok")
+      })
+    })
+    promiseRickMorty.then(resolve=>{
+      if(resolve==="ok"){
+        console.log(this.character)
+      }
+    })
+   }
+   */
 
 
 }

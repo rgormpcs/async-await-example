@@ -1,17 +1,18 @@
-
 <div class="card-div">
-    <button  (click)="getCharacters()">Generar</button>
+    <button (click)="getCharacters()">Generar</button>
     <li class="card-group" *ngFor="let character of characters">
-        <section class="card" >
+        <section class="card">
             <h1 class="header">{{character.name}}</h1>
-            <img src={{character.image}} alt="image character" >
+            <img src={{character.image}} alt="image character">
             <h3>{{character.gender}}</h3>
             <h3>{{character.species}}</h3>
         </section>
     </li>
-    <section>
+    <section class="counters">
         <h1>Count Async Await</h1>
-        
+        <div *ngFor="let item of counter | keyvalue">
+            <h3>Species:{{item.key}}</h3>
+            <h3>Number:{{item.value}}</h3>
+        </div>    
     </section>
 </div>
-
