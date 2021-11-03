@@ -1,4 +1,10 @@
-.card{
+.card-div {
+    display: grid;
+    justify-content: center;
+    overflow: auto;
+}
+
+.card {
     text-align: center;
     font-size: medium;
     font-family: Arial, Helvetica, sans-serif;
@@ -6,19 +12,43 @@
     border-radius: 15px;
 }
 
-
-.header{
+.header {
     background-color: #1976d2;
     padding: 20px;
     margin: 0px;
     border-top-left-radius: 13px;
     border-top-right-radius: 13px;
-    color:white;
+    color: white;
 }
 
-.card-group{
-        display: inline-block;
-        justify-content: center;     
-        overflow: auto;
+.card-group {
+    display: inline-block;
+    justify-content: center;
+    overflow: auto;
 }
 
+.counters {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 500px;
+}
+
+.title {
+    text-align: center;
+}
+
+button {
+    background-color: #1976d2;
+    margin-left: 90px;
+    margin-right: 90px;
+    border: none;
+    border-radius: 12px;
+    padding: 10px;
+    color: azure;
+}
+
+.scrollmenu {
+    overflow: auto;
+    white-space: nowrap;
+}

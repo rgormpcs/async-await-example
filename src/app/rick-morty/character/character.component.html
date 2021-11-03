@@ -1,5 +1,4 @@
-<div class="card-div">
-    <button (click)="getCharacters()">Generar</button>
+<div class="scrollmenu">
     <li class="card-group" *ngFor="let character of characters">
         <section class="card">
             <h1 class="header">{{character.name}}</h1>
@@ -8,11 +7,14 @@
             <h3>{{character.species}}</h3>
         </section>
     </li>
+</div>
+<div class="card-div">
     <section class="counters">
-        <h1>Count Async Await</h1>
+        <h1 class="title">Count Async Await</h1>
         <div *ngFor="let item of counter | keyvalue">
-            <h3>Species:{{item.key}}</h3>
+            <h3>Specie:{{item.key}}</h3>
             <h3>Number:{{item.value}}</h3>
-        </div>    
+        </div>
+        <button (click)="getCharacters()">Generar</button>
     </section>
 </div>
