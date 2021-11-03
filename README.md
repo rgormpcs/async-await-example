@@ -4,6 +4,10 @@
 ![image](rm2.PNG)
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.3.
 
+This aplication use angular and typescript to Consume Rick and Morty APP and this is use asinc awit to count type of species and number of it
+
+https://rickandmortyapi.com/documentation/
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
